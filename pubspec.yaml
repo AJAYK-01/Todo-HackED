@@ -31,6 +31,7 @@ dependencies:
   hive:
   hive_flutter:
   path_provider:
+  solid_bottom_sheet:
 
 dev_dependencies:
   flutter_test:
