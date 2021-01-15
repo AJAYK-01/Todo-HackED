@@ -7,9 +7,5 @@ class Task {
   @HiveField(0)
   String task;
 
-// Just an example for next attribute
-// @HiveField(1)
-// bool checked;
-
   Task({this.task});
 }

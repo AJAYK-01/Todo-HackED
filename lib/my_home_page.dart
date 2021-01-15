@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text('Things left To Do...'),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 8.0),
+        padding: const EdgeInsets.only(top: 8.0, bottom: 60.0),
         child: ValueListenableBuilder(
             valueListenable: Hive.box<Task>('TODOs').listenable(),
             builder: (context, Box<Task> _notesBox, _) {
@@ -60,11 +60,10 @@ class _MyHomePageState extends State<MyHomePage> {
           smoothness: Smoothness.high,
           controller: _controller,
           headerBar: Container(
-            // color: _controller.isOpened ? Color(0XFF263145) : Color(0XFF333F55),
             color: Colors.transparent,
             child: Center(
               child: Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: const EdgeInsets.only(bottom: 12.0),
                 child: AddButton(
                   ficon: ficon,
                   onPressed: () {
@@ -73,9 +72,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       _controller.hide();
                     } else {
                       _controller.show();
-                      // FocusScope.of(context).requestFocus(node);
+               
                     }
-                    // _simpleDialog();
+        
                   },
                   tooltip: 'AddNewTODOTask',
                 ),
@@ -86,7 +85,6 @@ class _MyHomePageState extends State<MyHomePage> {
           body: Container(
             color: Color(0XFF333F55),
             child: Column(
-              // title: const Text('New TODO Task'),
               children: <Widget>[
                 Center(
                   child: Padding(
@@ -97,6 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         TextField(
                           controller: textController,
                           focusNode: node,
+                          style: TextStyle(color: Color(0XFFDEEAF8)),
                           decoration: InputDecoration(
                             hintStyle: TextStyle(color: Color(0XFFB3C6EA)),
                             hintText: 'Type something...',
@@ -105,7 +104,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                 color: Color(0XFFF6376D),
                               ),
                             ),
-                            border: InputBorder.none,
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0XFFF6376D),
+                              ),
+                            ),
                           ),
                           onChanged: (value) => inputTask = value,
                         ),
@@ -121,7 +124,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                   _addTodo(_task);
                                   textController.clear();
                                   _controller.hide();
-                                  // FocusScope.of(context).unfocus();
                                 },
                                 child: Text('Add'),
                               ),

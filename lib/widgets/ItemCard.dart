@@ -11,12 +11,6 @@ class ItemCard extends StatelessWidget {
     var heightRatio = MediaQuery.of(context).size.height / 812;
     var widthRatio = MediaQuery.of(context).size.width / 375;
     return Container(
-      // color: Colors.red,
-      // child: ListTile(
-      //   title: Text(title),
-      //   onLongPress: onDelete,
-      // ),
-
       width: 331 * widthRatio,
       margin: EdgeInsets.symmetric(vertical: 15 * heightRatio),
       child: Row(
@@ -46,7 +40,6 @@ class ItemCard extends StatelessWidget {
                 color: Colors.green,
               ),
               decoration: BoxDecoration(
-                // color: Colors.green,
                 borderRadius: BorderRadius.circular(7),
               ),
             ),
